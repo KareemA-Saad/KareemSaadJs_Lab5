@@ -1,0 +1,86 @@
+<!DOCTYPE>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kareem Saad lab 5</title>
+    <script src="externalScript.js" defer></script>
+
+</head>
+
+<body>
+    <h1> Kareem Ahmed Saad JS_Lab5 ans</h1>
+    <h2> Q 1 - Simple Slideshow</h2>
+
+    <div class="slideshow-container">
+        <img src="imgs/1.png" alt="Image 1" style="width: 500px; height: 500px;">
+        <p id="caption">Image 1</p>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+        <button id="slideshowBtn">Slideshow</button>
+        <button id="stopBtn">Stop</button>
+    </div>
+    <hr>
+
+    <h2> Q 2 - student form</h2>
+
+    <form id="studentForm">
+
+        <label for="dept">Department:</label>
+            <input type="radio" name="dept" value="SD" checked> SD
+            <input type="radio" name="dept" value="OS"> OS
+            <input type="radio" name="dept" value="EL"> EL
+            <br><br>
+
+
+        <label>Student Name:</label>
+        <input type="text" id="studentName">
+        <div id="nameError" class="error"></div>
+
+
+        <label> Student Grade:</label>
+        <input type="text" id="studentGrade">
+        <div id="gradeError" class="error"></div>
+
+        <button type="submit" id="addbtn">Add Student</button>
+<br><br>
+        <label> Sort</label>
+            <select id="sortSelect">
+                <option value="none">None</option>
+                <option value="name">Name</option>
+                <option value="grade">Grade</option>
+            </select>
+<br><br>
+        
+        <label> Filter</label>
+            <select id="filterSelect">
+                <option value="all">All</option>
+                <option value="failed">Failed</option>
+                <option value="success">Success</option>
+            </select>
+        
+    </form>
+
+    <br>
+    <table id="studentTable" border="2" >
+        <thead>
+            <tr>
+                <th style =padding:15px> Name </th>
+                <th style =padding:15px> Grade </th>
+                
+                <th style =padding:15px> option </th>
+            </tr>
+        </thead>
+        <tbody id="tBodies">   </tbody>
+    </table>
+    </form>
+
+
+</body>
+
+
+</html>
