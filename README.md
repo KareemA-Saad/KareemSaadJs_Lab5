@@ -13,7 +13,7 @@ Use in <head> or <body>
 
 *EXAMPLE*:
 
-<!DOCTYPE html>
+DOCTYPE html
 <html>
 <head>
   <script src="script1.js" defer></script>
@@ -22,8 +22,7 @@ Use in <head> or <body>
 <body>
   <h1>Hello, world!</h1>
 </body>
-</html>
-
+html
 --- script1.js loads and runs before script2.js, both after the HTML is fully parsed.
 
 async
@@ -37,14 +36,14 @@ Best for scripts that are independent (e.g., analytics, ads)
 
 Use in <head> or <body>
 
-<head>
+
   <script src="script1.js" async></script>
   <script src="script2.js" async></script>
 </head>
 <body>
   <h1>Hello, world!</h1>
 </body>
-</html>
+
 
 scripts run as soon as they load, order not guaranteed.
 both load and run independently — whichever finishes first runs first
