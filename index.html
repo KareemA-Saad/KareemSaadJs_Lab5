@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kareem Saad lab 5</title>
     <script src="externalScript.js" defer></script>
-
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -31,11 +31,12 @@
     <form id="studentForm">
 
         <label for="dept">Department:</label>
-            <input type="radio" name="dept" value="SD" checked> SD
-            <input type="radio" name="dept" value="OS"> OS
-            <input type="radio" name="dept" value="EL"> EL
-            <br><br>
-
+        <select id="dept" name="dept">
+            <option value="SD">SD</option>
+            <option value="OS">OS</option>
+            <option value="EL">EL</option>
+        </select>
+        <br><br>
 
         <label>Student Name:</label>
         <input type="text" id="studentName">
@@ -69,10 +70,10 @@
     <table id="studentTable" border="2" >
         <thead>
             <tr>
-                <th style =padding:15px> Name </th>
-                <th style =padding:15px> Grade </th>
-                
-                <th style =padding:15px> option </th>
+                <th style="padding:15px">Name</th>
+                <th style="padding:15px">Grade</th>
+                <th style="padding:15px">Department</th>
+                <th style="padding:15px">Options</th>
             </tr>
         </thead>
         <tbody id="tBodies">   </tbody>

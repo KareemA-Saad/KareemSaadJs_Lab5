@@ -95,14 +95,10 @@ sButton.addEventListener("click", function(event) {
     event.preventDefault();
     // Get input values and Capitalize the first letter of the name
     let rawName = sName.value.trim();
-    let name = rawName.slice(0,1).toUpperCase() + rawName.slice(1).toLowerCase();;
+    let name = rawName.slice(0,1).toUpperCase() + rawName.slice(1).toLowerCase();
     let grade = sGrade.value;
-    let selectedDeptElement = document.querySelector('input[name="dept"]:checked');
-    let deptValue = selectedDeptElement ? selectedDeptElement.value : "SD";
-
-    console.log("Selected department element:", selectedDeptElement);
-    console.log("Department value:", deptValue);
-
+    let deptValue = document.getElementById("dept").value; // Add this line
+    
     // Validate inputs
     let valid = true;
 //Name  empty and repetead validation
@@ -130,7 +126,7 @@ sButton.addEventListener("click", function(event) {
     }
 
     if (valid) {
-        studs.push({ name: name, grade: parseInt(grade), dept: deptValue  });
+        studs.push({ name: name, grade: parseInt(grade), dept: deptValue });
         sName.value = "";
         sGrade.value = "";
         renderTable();
@@ -174,11 +170,23 @@ function renderTable() {
     // Add rows to table
     data.forEach((student, index) => {
         let row = document.createElement("tr");
+        
+        // Add grade-based coloring
+        if (student.grade >= 75) {
+            row.style.backgroundColor = "green";
+        } else if (student.grade >= 60) {
+            row.style.backgroundColor = "yellow"; // Light yellow
+        } else {
+            row.style.backgroundColor = "red"; // Light red
+        }
+
         let nameCell = document.createElement("td");
         let gradeCell = document.createElement("td");
+        let deptCell = document.createElement("td");
         let optionCell = document.createElement("td");
 
-          let deptCell = document.createElement("td");
+        nameCell.textContent = student.name;
+        gradeCell.textContent = student.grade;
         deptCell.textContent = student.dept;
         
         // Create delete button
@@ -188,9 +196,6 @@ function renderTable() {
             deleteStudent(studs.indexOf(student));
         });
         
-        nameCell.textContent = student.name;
-        gradeCell.textContent = student.grade;
-        deptCell.textContent = student.department;
         optionCell.appendChild(deleteBtn);
         
         row.appendChild(nameCell);
